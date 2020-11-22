@@ -5,21 +5,28 @@ import playerArr from "../../data/footballers";
 
 const PlayerList = () => {
 
-// i'll need a state array to check if a player has been chosen
-// i'll need to set each item in the array to false 
-// there are playersArr.length number of players
+// i'll need to add another bit of data to the playersArr to 
+// store whether the players are chosen or not
 
-const [playerChosen,setPlayerChosen] = useState([]);
+// const addPlayerChosenData = () => {
+//   playerArr.map(...playerArr =>{
+//     player.chosen: false;
+//   })
+// }
 
 
+const handleChoosePlayer = (player) => {
+ console.log("player chosen");
+}
   
   return (
-    <div>
+    <div className={styles.playerList}>
+
       {playerArr.map(player => {
         return (
           // here i want to render a list of players who
           // have not yet been chosen
-          <p>{player.position}: {player.name}, {player.nationality}</p>
+          <div onClick={handleChoosePlayer(player)} className={styles.player}>{player.position}: {player.name}</div>
       
         );
       })}
