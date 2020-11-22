@@ -66,7 +66,8 @@ const WeatherCard = (props) => {
 
   return (
     <div className={styles.card}>
-      <p>City: {weatherData.name}</p>
+      <h2>{weatherData.name}</h2>
+      <div><img src="" alt="" /></div>
       <p>Temp: {cityTempJSX()}&deg;C</p>
       <p>(Min. {cityTempMinJSX()}&deg;C Max. {cityTempMaxJSX()}&deg;C)</p>
       <p>Humidity: {cityHumidityJSX()}</p>

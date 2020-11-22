@@ -1,5 +1,19 @@
-.cardsContainer {
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
+header {
+    background-color: skyblue;
+    h1 {
+        text-align: center;
+        padding: 1%;
+    }
+}
+
+.cardsContainer {
+    background-color: lightblue;
     padding: 5%;
     display: flex;
     justify-content: space-between;
