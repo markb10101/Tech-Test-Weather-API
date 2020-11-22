@@ -1,45 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from "./Weather.module.scss";
 import WeatherCard from "../WeatherCard";
 
 const Weather = () => {
 
-  const cityId = "2643744";
-
-  const myApiKey = "4b162341f3587ae4fbd41f27e1814695";
-
-  const [weatherData, setWeatherData] = useState({});
-
-  const getApiData = async () => {
-
-    let urlString = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&appid=${myApiKey}`;
-
-    await fetch(urlString)
-      .then(response => response.json())
-      .then(data => {
-        
-        setWeatherData(data);
-      })
-
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-
-  useEffect(() => {
-    getApiData();
-  },[])
-
-  // useEffect(()=> {
-
-  // },[weatherData])
 
   return (
-    <>
-    
-    <WeatherCard weatherData={weatherData} />
-
-    </>
+    <div className={styles.cardsContainer}>
+      <WeatherCard cityId={2643744} />
+      <WeatherCard cityId={4749005} />
+      <WeatherCard cityId={4219762} />
+    </div>
   );
 };
 

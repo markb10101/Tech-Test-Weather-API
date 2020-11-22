@@ -3,7 +3,25 @@ import styles from "./WeatherCard.module.scss";
 
 const WeatherCard = (props) => {
 
-  const weatherData = props.weatherData;
+  const cityId = props.cityId;
+  const myApiKey = "4b162341f3587ae4fbd41f27e1814695";
+  const [weatherData, setWeatherData] = useState({});
+
+  const getApiData = async () => {
+    let urlString = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&appid=${myApiKey}`;
+    await fetch(urlString)
+      .then(response => response.json())
+      .then(data => {    
+        setWeatherData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  useEffect(() => {
+    getApiData();
+  },[])
 
   const cityNameJSX = () => {
     return weatherData.name !== undefined ? (
@@ -47,12 +65,12 @@ const WeatherCard = (props) => {
 
 
   return (
-    <>
+    <div className={styles.card}>
       <p>City: {weatherData.name}</p>
       <p>Temp: {cityTempJSX()}&deg;C</p>
       <p>(Min. {cityTempMinJSX()}&deg;C Max. {cityTempMaxJSX()}&deg;C)</p>
       <p>Humidity: {cityHumidityJSX()}</p>
-    </>
+    </div>
   );
 };
 

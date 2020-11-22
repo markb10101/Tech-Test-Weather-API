@@ -4,8 +4,8 @@ import styles from "./NavBar.module.scss";
 
 const NavBar = () => {
   return (
-    <>
-      <section className={styles.links}>
+    <div className={styles.navBar}>
+      <div className={styles.links}>
 
       <Link to="../weather">
         <div><p>Weather</p></div>
@@ -22,8 +22,8 @@ const NavBar = () => {
 
 
 
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
 
