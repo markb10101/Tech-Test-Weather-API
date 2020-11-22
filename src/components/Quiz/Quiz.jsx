@@ -26,12 +26,13 @@ const Quiz = () => {
 
   return (
     <div className={styles.quiz}>
+      <h1>Quick Quiz</h1>
       <form onSubmit={e => validateForm(e)}>
         <label htmlFor="answer">
           What's the best dog?
         <input autocomplete="off" name="answer" placeholder="your answer" type="text" onChange={e => setUserAnswer(e.target.value)} required/>
         </label>
-        <input type="submit" value="submit" onSubmit={e=>validateForm(e)}/>
+        <input type="submit" value="submit"/>
       </form>
       <div className={styles.reply}>{reply}</div>
     </div>
